@@ -1,0 +1,12 @@
+-- #[9] 모든 사원은 직속 상사 및 직속 직원을 갖는다. 단, 최상위 또는 최하위 직원은 직속상사 및 직원이 없다. 
+-- 소속된 사원들 중 어떤 사원의 상사로 근무 중인 사원의 총 수를 출력하시오.
+ 
+ select count(distinct manager_id) as 'Count Managers'
+ from employees;
+
+# +사원들 중에 부하 직원을 가지고 있지 않은 직원의 수?
+
+#manager_id에 포함되지 않는 employee_id 수
+
+select (count(distinct employee_id) - count(distinct manager_id)) as "Don't have a subordinate"
+ from employees;
